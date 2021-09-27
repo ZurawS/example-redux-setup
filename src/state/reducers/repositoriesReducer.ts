@@ -1,4 +1,3 @@
-import { StringMappingType } from "typescript";
 import { ActionType } from "../action-types";
 import { Action } from "../actions/index";
 
@@ -8,8 +7,14 @@ interface RepositoriesState {
   data: string[];
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
 const repositoriesReducer = (
-  state: RepositoriesState,
+  state: RepositoriesState = initialState,
   action: Action
 ): RepositoriesState => {
   switch (action.type) {
